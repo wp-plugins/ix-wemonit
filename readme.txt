@@ -1,6 +1,6 @@
 === IX WeMonit ===
 Contributors: ixiter
-Donate link: http://ixiter.com/ix-wemonit/
+Donate link: http://ixiter.com/plugins/ix-wemonit/
 Tags: WeMonit, Server Monitoring
 Requires at least: 3.4
 Tested up to: 3.4
@@ -8,18 +8,18 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Show the data of your WeMonit Services. The Plugin comes with widget, shortcodes and template tags.
+Show the data of your WeMonit Services. The Plugin comes with a widget, shortcodes and template tags.
 
 == Description ==
 
-[WeMonit](http://wemonit.de/ "WeMonit Services") is a service, that monitors your server/webseite availability. They offer a free plan, where you can setup 5 services and you got notified by email, when your server is down.
+[WeMonit](http://wemonit.de/ "WeMonit Services") is a service, that monitors your server/webseite availability. They offer a free plan, where you can setup 5 services and you got notified by email and iOS-Push, when your server is down.
 
 IX WeMonit helps you to display these monitor stats as text and image. The plugin comes with a typical sidebar widget with lots of options, and also shortcodes and template tags for the same options and to display data graphs.
 
 On the plugins options page, you have to set up your API Key for your WeMonit account. After the plugin connected to WeMonit, it shows all available services and related shortcodes and template tags.
 The widget will appear in the widget section of your theme.
 As a "special feature", the plugin adds shortcode ability to sidebar widgets.  By installing this plugin, you can use all shortcodes in text widgtes, like you used to do in articles and pages.
-So if you dont like the build in widget, you can easily create your own customized widget. i.e. you can even add the graphs to a wide footer widget.
+So if you dont like the built in widget, you can easily create your own customized widget. i.e. you can even add the graphs to a wide footer widget.
 
 The following data is available by the plugin, via shortcode and template tag
 
@@ -28,10 +28,10 @@ The following data is available by the plugin, via shortcode and template tag
 * CurrentLatency - The current latency of your WeMonit service
 * IP4 Uptime Percent - Your services uptime in %, in the IP4 network
 * IP4 Downtime - The number of downtimes of your service in the IP4 network
-* IP4 Downtime Percent - Your services uptime in %, in the IP4 network
+* IP4 Downtime Percent - Your services downtime in %, in the IP4 network
 * IP6 Uptime Percent - Your services uptime in %, in the IP6 network
 * IP6 Downtime - The number of downtimes of your service in the IP6 network
-* IP6 Downtime Percent - Your services uptime in %, in the IP6 network
+* IP6 Downtime Percent - Your services downtime in %, in the IP6 network
 
 The graphs are only available with shortcodes and template tags
 
@@ -48,7 +48,7 @@ The shortcode and template tag names follow a simpe pattern and uses only one at
 == Installation ==
 
 1. Upload the complete `ix-wemonit` folder to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
+2. Activate the plugin through the 'Plugins' menu in the WordPress admin page.
 3. Create an account at [WeMonit](http://wemonit.de/ "WeMonit Services") and setup minimum 1 service
 4. Generate an API Key in your WeMonit account and enter it or your WeMonit login data on the plugins options page
 5. Save Changes on the plugins options page
