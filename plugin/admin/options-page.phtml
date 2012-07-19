@@ -1,0 +1,61 @@
+<div class="wrap ix_wemonit_wrap">
+    <div id="icon-options-general" class="icon32"><br></div><h2><?php echo 'IX WeMonit ' . __( 'Settings' ); ?></h2>
+    <div class="ix_wemonit_options_page">
+	<div class="ix_wemonit_options_form">
+	    <form method="post">
+		<input type="hidden" name="wpnonce" value="<?php echo $wpnonce; ?>" />
+		<h3><?php _e( 'Enter your WeMonit API Key …', 'ix_wemonit' ) ?></h3>
+
+		<dl class="ix_form_element_row">
+		    <dt class="ix_form_element_label"><label for="apikey"><?php _e( 'API Key', 'ix_wemonit' ) ?></label></dt>
+		    <dd class="ix_form_element">
+			<input type="text" name="apikey" value="<?php echo $apikey; ?>" />
+			<p class="ix_form_element_description"><?php _e( 'Enter your WeMonit API Key. If you don\'t have a WeMonit API Key, you can <a href="https://wemonit.de/user/api/list">create one at WeMonit</a> or …', 'ix_wemonit' ) ?></p>
+		    </dd>
+		</dl>
+		<h3><?php _e( '… or enter your WeMonit login data to retrieve an API Key', 'ix_wemonit' ); ?></h3>
+		<dl class="ix_form_element_row">
+		    <dt class="ix_form_element_label"><label for="email"><?php _e( 'Email' ) ?></label></dt>
+		    <dd class="ix_form_element">
+			<input type="text" name="email" value="<?php echo $email; ?>" />
+			<p class="ix_form_element_description"><?php _e( 'Enter the email address, you use to login to your WeMonit account.', 'ix_wemonit' ) ?></p>
+		    </dd>
+		    <dt class="ix_form_element_label"><label for="password"><?php _e( 'Password' ) ?></label></dt>
+		    <dd class="ix_form_element">
+			<input type="text" name="password" value="<?php echo $password; ?>" />
+			<p class="ix_form_element_description"><?php _e( 'Enter the password, you use to login to your WeMonit account.', 'ix_wemonit' ) ?></p>
+		    </dd>
+		    <dt></dt>
+		    <dd class="ix_form_element_save_changes"><input type="submit" name="ix_wemonit_submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>"></dd>
+		</dl>
+
+	    </form>
+	</div>
+	<?php if(!empty($services)): ?>
+	<div id="ix_wemonit_services">
+	    <hr />
+	    <h2><?php _e('Your WeMonit services, their values and related shortcodes and template tags', 'ix_wemonit') ?></h2>
+	    <?php foreach ( $services as $key => $val ): ?>
+		<?php $service = ix_wemonit_getService( $val[ 'service_id' ] ); ?>
+    	    <h3><?php echo $service[ 'name' ]; ?></h3>
+    	    <p><strong><?php _e( 'Age', 'ix_wemonit' ); ?>: </strong><?php echo ix_wemonit_getAge( $service[ 'service_id' ] ) ?> - <strong>Shortcode: </strong><code>[ix_wemonit_getAge id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getAge('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+    	    <p><strong><?php _e( 'Timespan', 'ix_wemonit' ); ?>: </strong><?php echo ix_wemonit_getTimespan( $service[ 'service_id' ] ) ?> - <strong>Shortcode: </strong><code>[ix_wemonit_getTimespan id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getTimespan('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+    	    
+	    <p><strong><?php _e( 'Current Latency', 'ix_wemonit' ); ?>: </strong><?php echo ix_wemonit_getCurrentLatency( $service[ 'service_id' ] ) ?> - <strong>Shortcode: </strong><code>[ix_wemonit_getCurrentLatency id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getCurrentLatency('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+    	    
+	    <p><strong><?php _e( 'IP4 Uptime Percent', 'ix_wemonit' ); ?>: </strong><?php echo ix_wemonit_getIp4UptimePercent( $service[ 'service_id' ] ) ?> - <strong>Shortcode: </strong><code>[ix_wemonit_getIp4UptimePercent id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getIp4UptimePercent('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+    	    <p><strong><?php _e( 'IP4 Downtime', 'ix_wemonit' ); ?>: </strong><?php echo ix_wemonit_getIp4Downtime( $service[ 'service_id' ] ) ?> - <strong>Shortcode: </strong><code>[ix_wemonit_getIp4Downtime id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getIp4Downtime('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+    	    <p><strong><?php _e( 'IP4 Downtime Percent', 'ix_wemonit' ); ?>: </strong><?php echo ix_wemonit_getIp4DowntimePercent( $service[ 'service_id' ] ) ?> - <strong>Shortcode: </strong><code>[ix_wemonit_getIp4DowntimePercent id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getIp4DowntimePercent('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+    	    <p><strong><?php _e( 'IP4 Uptime Image', 'ix_wemonit' ); ?>: </strong><br /><?php echo ix_wemonit_getIp4UptimeImage( $service[ 'service_id' ] ) ?><br /><strong>Shortcode: </strong><code>[ix_wemonit_getIp4UptimeImage id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getIp4UptimeImage('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+    	    <p><strong><?php _e( 'IP4 Latency Image', 'ix_wemonit' ); ?>: </strong><br /><?php echo ix_wemonit_getIp4LatencyImage( $service[ 'service_id' ] ) ?><br /><strong>Shortcode: </strong><code>[ix_wemonit_getIp4LatencyImage id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getIp4LatencyImage('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+
+	    <p><strong><?php _e( 'IP6 Uptime Percent', 'ix_wemonit' ); ?>: </strong><?php echo ix_wemonit_getIp6UptimePercent( $service[ 'service_id' ] ) ?> - <strong>Shortcode: </strong><code>[ix_wemonit_getIp6UptimePercent id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getIp6UptimePercent('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+    	    <p><strong><?php _e( 'IP6 Downtime', 'ix_wemonit' ); ?>: </strong><?php echo ix_wemonit_getIp6Downtime( $service[ 'service_id' ] ) ?> - <strong>Shortcode: </strong><code>[ix_wemonit_getIp6Downtime id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getIp6Downtime('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+    	    <p><strong><?php _e( 'IP6 Downtime Percent', 'ix_wemonit' ); ?>: </strong><?php echo ix_wemonit_getIp6DowntimePercent( $service[ 'service_id' ] ) ?> - <strong>Shortcode: </strong><code>[ix_wemonit_getIp6DowntimePercent id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getIp6DowntimePercent('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+    	    <p><strong><?php _e( 'IP6 Uptime Image', 'ix_wemonit' ); ?>: </strong><br /><?php echo ix_wemonit_getIp6UptimeImage( $service[ 'service_id' ] ) ?><br /><strong>Shortcode: </strong><code>[ix_wemonit_getIp6UptimeImage id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getIp6UptimeImage('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+    	    <p><strong><?php _e( 'IP6 Latency Image', 'ix_wemonit' ); ?>: </strong><br /><?php echo ix_wemonit_getIp6LatencyImage( $service[ 'service_id' ] ) ?><br /><strong>Shortcode: </strong><code>[ix_wemonit_getIp6LatencyImage id="<?php echo $service[ 'service_id' ]; ?>"]</code> - <strong>Template Tag: </strong><code>&lt;?php echo ix_wemonit_getIp6LatencyImage('<?php echo $service[ 'service_id' ] ?>'); ?></code></p>
+	    <?php endforeach; ?>
+	</div>
+	<?php endif; ?>
+    </div>
+</div>
