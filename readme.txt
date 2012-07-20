@@ -80,6 +80,7 @@ First public version
 
 == Links ==
 Use the following links to stay tuned with the plugin development.
+
 * [WP Plugin Directory](http://wordpress.org/extend/plugins/ix-wemonit/ "IX WeMonit in the WP Plugin Directory")
 * [Download](http://downloads.wordpress.org/plugin/ix-wemonit.zip "Download IX WeMonit from the WP Plugin Directory")
 * [WP Plugin Forum](http://wordpress.org/support/plugin/ix-wemonit/ "The IX WeMonit support forum")
